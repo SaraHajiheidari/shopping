@@ -9,7 +9,7 @@ import java.util.Date;
 @Entity
 @Setter
 @Getter
-@Table
+@Table(name = "payments")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Payment {
@@ -24,5 +24,5 @@ public class Payment {
 
     @ManyToOne
     @JoinColumn(name = "customer_ID")
-    private Customers customer;//customer_Id(FK)
+    private Customer customer;//customer_Id(FK)
 }

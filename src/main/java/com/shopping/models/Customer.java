@@ -7,22 +7,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Setter
 @Getter
-@Table
+@Table(name = "customers")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customers {
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long customer_ID;
 
     @OneToMany
-    private List<Payment> paymentList;
+    private List<Payment> paymentList = new ArrayList<>();
 
 
     @Size(min = 3 , message =  "you must have a name!")
@@ -33,15 +34,15 @@ public class Customers {
     private String address;
 
     @ManyToMany
-    private List<Categories> categoriesList;
+    private List<Category> categoriesList;
 
-    @ManyToMany(mappedBy = "Customers")
-    private List<Products> productsList;
+    @ManyToMany(mappedBy = "Customer")
+    private List<Product> productsList =new ArrayList<>();
 
 
-    @OneToMany(mappedBy = "Customers")
-    private List<Deliveries> deliveriesList;
+    @OneToMany(mappedBy = "Customer")
+    private List<Delivery> deliveriesList =new ArrayList<>();
 
     @OneToMany(mappedBy = "Order")
-    private List<Order> orderList;
+    private List<Order> orderList = new ArrayList<>();
 }

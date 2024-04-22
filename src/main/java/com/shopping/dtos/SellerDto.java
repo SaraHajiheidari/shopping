@@ -1,6 +1,6 @@
 package com.shopping.dtos;
 
-import com.shopping.models.Products;
+import com.shopping.models.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +15,7 @@ import java.util.List;
 public class SellerDto {
 
     private Long seller_ID;
-    private List<Products> producT_ID;
+    private List<Product> producT_ID;
     private String name;
 
 }

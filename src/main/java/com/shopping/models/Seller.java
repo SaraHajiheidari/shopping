@@ -1,6 +1,5 @@
 package com.shopping.models;
 
-import com.shopping.models.Products;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +11,7 @@ import java.util.List;
 @Entity
 @Setter
 @Getter
-@Table
+@Table(name ="sellers")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Seller {
@@ -25,7 +24,7 @@ public class Seller {
     @JoinTable(name = "product_seller_mapping" ,
     joinColumns ={@JoinColumn (name = "Join_seller_ID", referencedColumnName = "seller_ID")},
     inverseJoinColumns ={@JoinColumn(name = "Join_product_Id",referencedColumnName = "product_ID")})
-    private List<Products> producT_ID;
+    private List<Product> producT_ID;
 
     private String name;
 }

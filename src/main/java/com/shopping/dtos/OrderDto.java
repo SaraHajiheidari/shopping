@@ -1,6 +1,6 @@
 package com.shopping.dtos;
 
-import com.shopping.models.Customers;
+import com.shopping.models.Customer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class OrderDto {
     private Long order_ID;
-    private Customers customer_ID;
+    private Customer customer_ID;
     private Date date;
 
 }

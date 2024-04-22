@@ -1,11 +1,11 @@
 package com.shopping.reposietories;
 
-import com.shopping.models.Categories;
+import com.shopping.models.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<Categories ,Long> {
+public interface CategoryRepository extends JpaRepository<Category,Long> {
 
-    Categories getCategoryByName(String name);
+    Category getCategoryByName(String name);
 }

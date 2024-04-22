@@ -1,6 +1,6 @@
 package com.shopping.dtos;
 
-import com.shopping.models.Categories;
+import com.shopping.models.Category;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class PaymentDto {
     private Long payment_ID;
-    private Categories category_ID;
+    private Category category_ID;
     private Date date;
 
 }

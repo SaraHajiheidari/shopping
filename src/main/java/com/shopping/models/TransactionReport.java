@@ -6,30 +6,31 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Setter
 @Getter
-@Table
+@Table(name ="transaction_reports")
 @NoArgsConstructor
 @AllArgsConstructor
-public class TransactionReports {
+public class TransactionReport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long report_ID;
 
     @ManyToOne
     @JoinColumn(name = "Customers_ID")
-    private Customers customer;
+    private Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "order_ID")
     private Order order_ID;
 
 
-    @OneToMany
-    private List<Products> product_ID;
+    @OneToMany(mappedBy = "TransactionReport")
+    private List<Product> product_ID =new ArrayList<>();
 
 @ManyToOne
 @JoinColumn(name = "payment_ID")

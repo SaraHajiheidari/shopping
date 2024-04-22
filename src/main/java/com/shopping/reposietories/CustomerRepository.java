@@ -1,9 +1,9 @@
 package com.shopping.reposietories;
 
-import com.shopping.models.Customers;
+import com.shopping.models.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CustomerRepository extends JpaRepository<Customers , Long> {
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
 }

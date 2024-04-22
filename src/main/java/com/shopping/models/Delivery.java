@@ -12,16 +12,17 @@ import java.util.Date;
 @Entity
 @Setter
 @Getter
+@Table(name ="delieveries")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Deliveries {
+public class Delivery {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long deliveries_Id;
 
    @ManyToOne
    @JoinColumn(name = "customer_ID")
-    private Customers customer;
+    private Customer customer;
 
     @DateTimeFormat
     private Date date;

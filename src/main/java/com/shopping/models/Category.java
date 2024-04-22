@@ -2,17 +2,22 @@ package com.shopping.models;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import jakarta.validation.constraints.Size;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "categories")
 @Setter
 @Getter
-public class Categories {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,13 +29,13 @@ public class Categories {
     @Size(min = 8, message = "category name must contain atleast 8 Charackter!")
     private String category_type;
 
-    @OneToMany(mappedBy = "Categories", orphanRemoval = true)
-    private List<Products> products;
+    @OneToMany(mappedBy = "Category", orphanRemoval = true , cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
+    private List<Product> products =new ArrayList<>();
 
     @ManyToMany
     @JoinTable(name = "Customer_Category_Mapping" ,
-    joinColumns = {@JoinColumn(name = "category_ID")},
+    joinColumns = {@JoinColumn(name = "category_id")},
             inverseJoinColumns = {@JoinColumn(name = "customer_ID")}
     )
-    private List<Customers> customersList;
+    private List<Customer> customersList;
 }

@@ -1,7 +1,6 @@
 package com.shopping.dtos;
 
-import com.shopping.models.Customers;
-import jakarta.persistence.OneToOne;
+import com.shopping.models.Customer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +17,7 @@ public class DeliveryDto {
     private Long deliveries_Id;
 
 
-    private Customers customer_ID;
+    private Customer customer_ID;
 
 
     private Date date;

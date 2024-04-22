@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Setter
 @Getter
-@Table
+@Table(name = "orders")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Order {
@@ -21,11 +22,11 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "customer_ID")
-    private Customers customer;
+    private Customer customer;
 
     @DateTimeFormat
     private Date date;
 
-    @OneToMany
-    private List<TransactionReports> transactionReportsList;
+    @OneToMany(mappedBy = "Order")
+    private List<TransactionReport> transactionReportsList =new ArrayList<>();
 }

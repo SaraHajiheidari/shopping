@@ -7,32 +7,31 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name = "products")
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Products {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long product_ID;
 
-    @ManyToOne
-    @JoinColumn(name = "category_ID")
-    private Categories category;
 
     @Size(min = 3 , message = "product must have a name!")
     private String product_name;
 
     @ManyToOne
-    private Categories categorie;
+    @JoinColumn(name = "category_ID")
+    private Category category;
 
-    @OneToMany
-    private List<TransactionReports> transactionReportsList;
+    @OneToMany(mappedBy = "Product")
+    private List<TransactionReport> transactionReportsList = new ArrayList<>();
 
     @ManyToMany
     private List<Seller> sellerList;
@@ -41,6 +40,6 @@ public class Products {
     @JoinTable(name = "product_customer_mapping",
     joinColumns = {@JoinColumn(name="product_ID")},
     inverseJoinColumns ={@JoinColumn(name="customer_ID")} )
-    private List<Customers> customersList;
+    private List<Customer> customersList;
 
 }
