@@ -26,13 +26,13 @@ public class TransactionReport {
 
     @ManyToOne
     @JoinColumn(name = "order_ID")
-    private Order order_ID;
+    private Order order;
 
 
-    @OneToMany(mappedBy = "TransactionReport")
-    private List<Product> product_ID =new ArrayList<>();
+    @OneToMany
+    private List<Product> products ;
 
 @ManyToOne
 @JoinColumn(name = "payment_ID")
-    private Payment payment_ID;
+    private Payment payment;
 }

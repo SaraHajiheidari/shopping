@@ -30,8 +30,8 @@ public class Product {
     @JoinColumn(name = "category_ID")
     private Category category;
 
-    @OneToMany(mappedBy = "Product")
-    private List<TransactionReport> transactionReportsList = new ArrayList<>();
+    @OneToMany
+    private List<TransactionReport> transactionReports ;
 
     @ManyToMany
     private List<Seller> sellerList;

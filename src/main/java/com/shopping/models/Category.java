@@ -29,8 +29,8 @@ public class Category {
     @Size(min = 8, message = "category name must contain atleast 8 Charackter!")
     private String category_type;
 
-    @OneToMany(mappedBy = "Category", orphanRemoval = true , cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
-    private List<Product> products =new ArrayList<>();
+    @OneToMany(mappedBy = "category", orphanRemoval = true , cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
+    private List<Product> products ;
 
     @ManyToMany
     @JoinTable(name = "Customer_Category_Mapping" ,

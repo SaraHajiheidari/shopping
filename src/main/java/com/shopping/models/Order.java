@@ -27,6 +27,6 @@ public class Order {
     @DateTimeFormat
     private Date date;
 
-    @OneToMany(mappedBy = "Order")
+    @OneToMany(mappedBy = "order")
     private List<TransactionReport> transactionReportsList =new ArrayList<>();
 }

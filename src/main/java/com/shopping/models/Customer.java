@@ -36,13 +36,13 @@ public class Customer {
     @ManyToMany
     private List<Category> categoriesList;
 
-    @ManyToMany(mappedBy = "Customer")
-    private List<Product> productsList =new ArrayList<>();
+    @ManyToMany
+    private List<Product> productsList ;
 
 
-    @OneToMany(mappedBy = "Customer")
-    private List<Delivery> deliveriesList =new ArrayList<>();
+    @OneToMany(mappedBy = "customer")
+    private List<Delivery> deliveriesList ;
 
-    @OneToMany(mappedBy = "Order")
-    private List<Order> orderList = new ArrayList<>();
+    @OneToMany(mappedBy = "customer")
+    private List<Order> orderList;
 }
